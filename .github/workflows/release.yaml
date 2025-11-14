@@ -48,8 +48,7 @@ jobs:
         uses: goreleaser/goreleaser-action@v6
         with:
           distribution: goreleaser
-          version: "2.9.0"
-          args: release --debug
+          args: release
         env:
           GOPATH: ${{ env.GOPATH }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
