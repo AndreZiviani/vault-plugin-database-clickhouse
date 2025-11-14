@@ -70,7 +70,7 @@ func PrepareTestContainer(t *testing.T, useTLS bool, adminUser, adminPassword st
 			return nil, err
 		}
 		defer db.Close()
-		err = db.Ping()
+		err = db.PingContext(ctx)
 		if err != nil {
 			return nil, err
 		}
@@ -91,5 +91,5 @@ func TestCredsExist(t testing.TB, connURL string) error {
 	}
 	defer db.Close()
 
-	return db.Ping()
+	return db.PingContext(context.Background())
 }
